@@ -13,6 +13,7 @@ import environ
 from pathlib import Path
 import django_heroku
 import dj_database_url
+import os
 
 
 env = environ.Env(
@@ -35,7 +36,7 @@ SECRET_KEY = 'django-insecure-$pvn-gxopjnn1**=9a)izjp$yh9v!w)e0n6ju0^!6@5)mmmw2s
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = [*]
+ALLOWED_HOSTS = ["*"]
 
 
 # Application definition
@@ -147,9 +148,7 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
 
-STATIC_URL = '/static/'
-STATIC_ROOT = '.staticfiles'
-STATICFILES_DIRS = ['static']
+STATIC_URL = os.path.join(BASE_DIR,'static')
 django_heroku.settings(locals())
 
 # Default primary key field type
