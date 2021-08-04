@@ -14,7 +14,7 @@ from pathlib import Path
 import django_heroku
 import dj_database_url
 
-
+import os
 env = environ.Env(
     # set casting, default value
     DEBUG=(bool, False)
@@ -150,6 +150,12 @@ USE_TZ = True
 STATIC_URL = '/static/'
 STATIC_ROOT = '.staticfiles'
 STATICFILES_DIRS = ['static']
+
+
+MEDIA_URL = '/media/'
+# MEDIA_ROOT = '/.media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
 django_heroku.settings(locals())
 
 # Default primary key field type
