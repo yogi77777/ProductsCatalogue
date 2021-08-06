@@ -5,7 +5,7 @@ import uuid
 
 class Product(models.Model):
     title = models.CharField(max_length=500)
-    img = models.FileField(upload_to="media/products",blank=True, null=True)
+    img = models.FileField(upload_to="products/",blank=True, null=True)
     desc = models.TextField()
     created_at = models.DateTimeField(auto_now=True, editable=False, db_index=True)
     modified_at = models.DateTimeField(auto_now=True, editable=False, db_index=True)

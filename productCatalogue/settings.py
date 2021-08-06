@@ -34,7 +34,9 @@ SECRET_KEY = 'django-insecure-$pvn-gxopjnn1**=9a)izjp$yh9v!w)e0n6ju0^!6@5)mmmw2s
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['ec2-35-173-49-169.compute-1.amazonaws.com','0.0.0.0','localhost:9090']
+ALLOWED_HOSTS = ['*']
+CORS_ORIGIN_ALLOW_ALL = True
+
 
 
 # Application definition
@@ -55,6 +57,8 @@ INSTALLED_APPS = [
     'allauth.account',
     'rest_auth.registration',
     'users',
+    'corsheaders'
+    
 
 ]
 
@@ -66,6 +70,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
 ]
 
 ROOT_URLCONF = 'productCatalogue.urls'
@@ -170,4 +175,4 @@ ACCOUNT_AUTHENTICATION_METHOD = 'email'
 ACCOUNT_EMAIL_VERIFICATION = False
 
 SITE_ID = 1
-EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+EMAIL_BACKEND = 'django.core.mail.backends.dummy.EmailBackend'
